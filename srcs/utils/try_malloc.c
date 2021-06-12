@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 17:15:38 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/12 17:31:58 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/12 18:03:47 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	*try_malloc(size_t size)
 	new = malloc(size);
 	if (!new)
 	{
-		write(2, "error: unable to allocate region\n", 33);
+		write(2, MALLOC_ALLOCATION, ft_strlen(MALLOC_ALLOCATION));
 		exit(-1);
 	}
 	ft_memset(new, 0, size);
