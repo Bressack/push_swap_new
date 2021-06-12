@@ -12,7 +12,7 @@
 
 #include <double_linked.h>
 #include <color_shell.h>
-#include <libc.h>
+#include <commons.h>
 
 char		*g_color[8] =
 {

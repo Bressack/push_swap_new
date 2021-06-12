@@ -6,18 +6,27 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:55:39 by tharchen          #+#    #+#             */
-/*   Updated: 2021/05/10 14:41:35 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/12 17:12:44 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COMMONS_H
 # define COMMONS_H
-#include <libc.h>
-#include <color_shell.h>
-#include <mmalloc.h>
-#include <double_linked.h>
-#include <utils.h>
-#include <get_next_line.h>
+# include <unistd.h>
+# include <sys/types.h>
+# include <stdarg.h>
+# include <strings.h>
+# include <sys/uio.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <color_shell.h>
+# include <mmalloc.h>
+# include <double_linked.h>
+# include <utils.h>
+# include <get_next_line.h>
+# define INT_MAX		2147483647
+# define INT_MIN		-2147483648
 # define INVALID_NUMBER "invalid number"
 # define INVALID_OP "invalid opperation"
 # define MALLOC_ALLOCATION "malloc cannot allocate region"

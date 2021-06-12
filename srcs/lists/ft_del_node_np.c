@@ -12,7 +12,7 @@
 
 #include <double_linked.h>
 
-#include <libc.h>
+#include <commons.h>
 
 void		ft_del_node_np(t_pnp **begin_list, t_pnp *del,
 	void (*f)(t_pnp *curr))
