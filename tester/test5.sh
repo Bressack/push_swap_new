@@ -6,7 +6,7 @@
 #    By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 15:46:40 by tharchen          #+#    #+#              #
-#    Updated: 2021/06/12 18:15:40 by tharchen         ###   ########.fr        #
+#    Updated: 2021/06/12 18:18:52 by tharchen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,4 +114,3 @@ test()
 for stack in $STACKS; do
 	test $stack
 done
-
