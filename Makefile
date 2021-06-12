@@ -6,7 +6,7 @@
 #    By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/15 23:43:12 by tharchen          #+#    #+#              #
-#    Updated: 2021/06/12 17:56:54 by tharchen         ###   ########.fr        #
+#    Updated: 2021/06/12 18:05:23 by tharchen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ NAME_CHECKER			=	checker
 
 NAME_PUSH_SWAP			=	push_swap
 
-CC						=	gcc
+CC						=	clang
 
 FLAGS					=	-Wall -Wextra -Werror -O3
 # FLAGS					=	-Wall -Wextra -Werror -g3 -fsanitize=address
