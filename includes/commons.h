@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:55:39 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/12 17:12:44 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/12 17:23:38 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <color_shell.h>
-# include <mmalloc.h>
 # include <double_linked.h>
 # include <utils.h>
 # include <get_next_line.h>
@@ -32,28 +31,6 @@
 # define MALLOC_ALLOCATION "malloc cannot allocate region"
 # define NUMBER_OUT_OF_INTEGER_RANGE "number out of the range of an integer"
 # define NUMBER_ALREADY_IN_STACK "number already in stack"
-typedef enum		e_perfopt
-{
-	START,
-	END,
-	PRINT
-}					t_perfopt;
-typedef struct		s_perf
-{
-	char			*funname;
-	int				call;
-	long long		time;
-	struct timeval	start;
-	struct timeval	end;
-}					t_perf;
-typedef struct		s_truple
-{
-	long long		h;
-	long long		m;
-	long long		s;
-	long long		ms;
-}					t_truple;
-extern t_perf		perf[1000];
 typedef enum		e_errortype
 {
 	NONE,
@@ -112,8 +89,8 @@ typedef struct		s_stat_prog
 	int				rrr;
 	int				total;
 }					t_stat_prog;
-t_truple				truple(long long ms);
-void					perfanalyser(char *funname, int opt);
+void	try_free(void **mem);
+void	*try_malloc(size_t size);
 int		get_size_stack(t_stack *s);
 double	*get_sorted_tab(t_stack *s);
 void	print_stacks(t_all *all);

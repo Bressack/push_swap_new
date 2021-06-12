@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 16:19:17 by tharchen          #+#    #+#             */
-/*   Updated: 2021/03/25 13:59:25 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/12 17:21:10 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define DOUBLE_LINKED_H
 
 # include <stdlib.h>
-# include <mmalloc.h>
 # include <stdarg.h>
+# include <commons.h>
 # define DLL_SUCCESS 0
 # define DLL_FAILURE 1
 

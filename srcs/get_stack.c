@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 18:16:58 by tharchen          #+#    #+#             */
-/*   Updated: 2021/05/05 13:27:20 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/12 17:34:35 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ double	*get_sorted_tab(t_stack *s)
 	int			len;
 
 	len = get_size_stack(s);
-	tab = try_malloc(sizeof(double) * len, _FL_);
+	if (!len)
+		return (NULL);
+	tab = try_malloc(sizeof(double) * len);
 	tmp = s;
 	i = 0;
 	while (tmp && i < len)
@@ -82,7 +84,7 @@ int		handle_one_str(t_all *all, char *s)
 	n = ft_atol(s);
 	if (n > INT_MAX || n < INT_MIN)
 		return (error(all->bin, ERR, NUMBER_OUT_OF_INTEGER_RANGE, s));
-	new = try_malloc(sizeof(t_stack), _FL_);
+	new = try_malloc(sizeof(t_stack));
 	new->value = (int)n;
 	ft_add_node_end_np((t_pnp **)&all->a, (t_pnp *)new);
 	all->stacklen++;

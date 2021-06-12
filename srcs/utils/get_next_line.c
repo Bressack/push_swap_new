@@ -6,89 +6,107 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 08:56:08 by tharchen          #+#    #+#             */
-/*   Updated: 2021/03/13 23:42:44 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/12 17:13:44 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <get_next_line.h>
 
-static int		gnl_u(char *s1, char **s2, char *s3, int cc)
+static t_str	*creat_new_node(const int fd, char *buf, t_str **sstr)
 {
-	int			i;
+	t_str			*new_node;
 
-	i = -1;
-	if (!s2 && !s3 && cc == -1)
+	new_node = try_malloc(sizeof(t_str));
+	new_node->fd = fd;
+	new_node->str = ft_strdup(buf);
+	new_node->next = *sstr;
+	*sstr = new_node;
+	return (new_node);
+}
+
+static t_str	*check_fd_node(const int fd, t_str *sstr)
+{
+	while (sstr)
 	{
-		while (s1 && s1[++i])
-			if (s1[i] == '\n')
-				return (i);
-		return (-1);
+		if (sstr->fd == fd)
+			return (sstr);
+		sstr = sstr->next;
 	}
-	else if (!s3 && cc == -1)
+	return (NULL);
+}
+
+static int	check_node(const int fd, char *buff, t_str **sstr)
+{
+	t_str			*node;
+	char			*tmp;
+
+	node = check_fd_node(fd, *sstr);
+	if (!node)
+		node = creat_new_node(fd, buff, sstr);
+	else
 	{
-		while (s1 && s1[++i])
-			;
-		return (i == -1 ? 0 : i);
+		tmp = ft_strjoin(2, node->str, buff);
+		ft_strdel(&node->str);
+		node->str = tmp;
 	}
-	if (cc)
-		while (cc == -1 ? s3[++i] : ++i < cc)
-			s1[i] = s3[i];
-	s1[i == -1 ? 0 : i] = 0;
-	s2 ? *s2 = s1 : 0;
+	if (ft_strfind(node->str, '\n') != -1)
+		return (1);
 	return (0);
 }
 
-static int		fill_save(int *fd, char **save)
+static char	*find_newline(const int fd, t_str *sstr)
 {
-	char		buf[BUFFER_SIZE + 1];
-	char		*tmp;
-	int			len[2];
+	t_str			*node;
+	char			*tmp;
+	char			*ret_line;
+	int				ret;
 
-	len[LEN] = 0;
-	len[RET] = 0;
-	while (1)
+	ret_line = NULL;
+	node = check_fd_node(fd, sstr);
+	if (!node || !node->str)
+		return (NULL);
+	ret = ft_strfind(node->str, '\n');
+	if (ret != -1)
 	{
-		if (gnl_u(*save, NULL, NULL, -1) != -1)
-			return (gnl_u(*save, NULL, NULL, -1));
-		len[LEN] = gnl_u(*save, (char **)1, NULL, -1);
-		if ((len[RET] = read(*fd, buf, BUFFER_SIZE)) < 0)
-			return (-1);
-		if (!len[RET] && (*fd = -1))
-			return (len[LEN]);
-		buf[len[RET]] = 0;
-		if (!(tmp = (char *)malloc((len[RET] + len[LEN] + 1))))
-			return (-1);
-		gnl_u(tmp, NULL, *save, len[LEN]);
-		gnl_u(tmp + len[LEN], NULL, buf, len[RET]);
-		*save ? FREE(*save) : 0;
-		*save = tmp;
+		ret_line = ft_strsub(node->str, 0, ret);
+		tmp = ft_strdup(node->str + ret + 1);
+		ft_strdel(&node->str);
+		node->str = tmp;
 	}
+	else
+	{
+		if (ft_strlen(node->str) != 0)
+			ret_line = ft_strdup(node->str);
+		ft_strdel(&node->str);
+	}
+	return (ret_line);
 }
 
-int				get_next_line(int fd, char **line)
+int	get_next_line(const int fd, char **line)
 {
-	static char	*save = NULL;
-	char		*tmp[2];
-	size_t		pos_nl;
+	static t_str	*sstr;
+	char			buf[BUFF_SIZE_GNL + 1];
+	int				ret;
+	int				back;
 
-	if (fd < 0 || !line || (pos_nl = fill_save(&fd, &save)) == -1 ||
-		!(*line = (char *)malloc(pos_nl + 1)))
-	{
-		save ? FREE(save) : 0;
+	if (*line)
+		ft_strdel(line);
+	if (fd < 0 || (!(line)) || BUFF_SIZE_GNL < 1)
 		return (-1);
-	}
-	if (!save)
-		return (0);
-	gnl_u(*line, NULL, save, pos_nl);
-	if (gnl_u(save, (char **)1, NULL, -1) - pos_nl)
+	while (1)
 	{
-		if (!(tmp[0] = malloc(gnl_u(save, (char **)1, NULL, -1) - pos_nl + 1)))
+		ret = read(fd, buf, BUFF_SIZE_GNL);
+		if (ret < 0)
 			return (-1);
-		gnl_u(tmp[0], &tmp[1], save + pos_nl + 1, -1);
-		save ? FREE(save) : 0;
-		save = tmp[1];
+		if (ret == 0)
+			break ;
+		buf[ret] = '\0';
+		back = check_node(fd, buf, &sstr);
+		if (back == 1)
+			return (((long)(*line = find_newline(fd, sstr))) * 0 + 1);
+		if (back == -1)
+			return (-1);
 	}
-	if (fd == -1)
-		save ? FREE(save) : 0;
-	return (fd == -1 ? 0 : 1);
+	*line = find_newline(fd, sstr);
+	return (*line != NULL);
 }

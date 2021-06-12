@@ -34,7 +34,7 @@ char		*ft_itoa(int n)
 	long	nbr;
 
 	nbr = n;
-	buf = try_malloc(sizeof(char) * ((intlen(nbr) + 1)), _FL_);
+	buf = try_malloc(sizeof(char) * ((intlen(nbr) + 1)));
 	if (nbr < 0)
 	{
 		buf[0] = '-';

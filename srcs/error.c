@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:30:39 by tharchen          #+#    #+#             */
-/*   Updated: 2021/05/05 13:26:58 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/12 17:22:00 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,6 @@ int		error(char *bin, enum e_errortype type, char *msg, char *arg) // TOOLONG
 	if (type == ERR)
 		return (1);
 	if (type == FATALERR)
-	{
-		free_all_malloc();
 		exit(-1);
-	}
 	return (FAILURE);
 }

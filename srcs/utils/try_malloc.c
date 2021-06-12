@@ -1,26 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_new_node.c                                      :+:      :+:    :+:   */
+/*   try_malloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/28 13:06:52 by tharchen          #+#    #+#             */
-/*   Updated: 2021/04/28 11:36:45 by tharchen         ###   ########.fr       */
+/*   Created: 2021/06/12 17:15:38 by tharchen          #+#    #+#             */
+/*   Updated: 2021/06/12 17:31:58 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <double_linked.h>
+# include <commons.h>
 
-void		*ft_new_node(
-	size_t size, void (*f)(void *, int, va_list), int nb_arg, ...)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	va_list	ap;
+	size_t	bytes;
+
+	bytes = 0;
+	while (bytes < len)
+	{
+		((char *)b)[bytes] = (unsigned char)c;
+		bytes++;
+	}
+	return (b);
+}
+
+void	try_free(void **mem)
+{
+	if (*mem)
+	{
+		free(*mem);
+		*mem = NULL;
+	}
+}
+
+void	*try_malloc(size_t size)
+{
 	void	*new;
 
-	new = try_malloc(size);
-	va_start(ap, nb_arg);
-	f(new, nb_arg, ap);
-	va_end(ap);
+	new = malloc(size);
+	if (!new)
+	{
+		write(2, "error: unable to allocate region\n", 33);
+		exit(-1);
+	}
+	ft_memset(new, 0, size);
 	return (new);
 }

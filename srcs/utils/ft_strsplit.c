@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 19:06:52 by tharchen          #+#    #+#             */
-/*   Updated: 2021/04/28 11:36:28 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/12 17:21:27 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char		**ft_strsplit(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	l = ft_count_word(s, c);
-	if (!(str = try_malloc(sizeof(char *) * (l + 1), _FL_)))
+	if (!(str = try_malloc(sizeof(char *) * (l + 1))))
 		return (NULL);
 	i = 0;
 	while (i < l)

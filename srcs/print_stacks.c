@@ -22,12 +22,12 @@ void	print_stacks(t_all *all)
 
 	if (!pattern)
 	{
-		pattern = try_malloc(sizeof(char) * 201, _FL_);
+		pattern = try_malloc(sizeof(char) * 201);
 		memset(pattern, '#', 200);
 	}
 	if (!pattern_stru)
 	{
-		pattern_stru = try_malloc(sizeof(char) * 301, _FL_);
+		pattern_stru = try_malloc(sizeof(char) * 301);
 		memset(pattern_stru, '-', 300);
 	}
 	tmp_a = all->a;

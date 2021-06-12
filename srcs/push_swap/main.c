@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:55:15 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/12 17:07:10 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/12 18:02:09 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,8 +224,8 @@ int				get_next_index(t_stack *s, int value)
 		while (value > tab[i])
 			i++;
 		index = get_index(s, tab[i]);
+		try_free((void **)&tab);
 	}
-	try_free((void **)&tab);
 	return (index);
 }
 
@@ -341,6 +341,34 @@ void			process_beta(t_all *all)
 	align_a(all);
 }
 
+void			handle_5(t_all *all)
+{
+	int			a;
+	int			b;
+	int			c;
+
+	pb(all, all->stacklen - 3);
+	a = all->a->value;
+	b = all->a->next->value;
+	c = all->a->next->next->value;
+
+	if (a < b && a < c && b > c)
+	{
+		sa(all, 1);
+		ra(all, 1);
+	}
+	if (a > b && a < c && b < c)
+		sa(all, 1);
+	if (a < b && a > c && b > c)
+		rra(all, 1);
+	if (a > b && a > c && b < c)
+		ra(all, 1);
+	if (a > b && a > c && b > c)
+	{
+		sa(all, 1);
+		rra(all, 1);
+	}
+}
 
 int				main(int ac, char **av)
 {
@@ -353,15 +381,14 @@ int				main(int ac, char **av)
 		get_stack(&all, ac, av); // fill all.a and all.b
 	error(all.bin, COUNT, NULL, NULL);
 	if (error(all.bin, CHECK, NULL, NULL) == FAILURE)
-	{
-		free_all_malloc();
 		return (-1);
-	}
 	if (all.a && all.a->next)
 	{
-		process_alpha(&all);
+		if (all.stacklen <= 5 && all.stacklen >= 3)
+			handle_5(&all);
+		else
+			process_alpha(&all);
 		process_beta(&all);
 	}
-	// free_all_malloc();
 	return (0);
 }

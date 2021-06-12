@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:55:15 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/12 17:06:12 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/12 17:27:16 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	get_prog(t_all *all)
 		}
 		else
 		{
-			new = try_malloc(sizeof(t_prog), _FL_);
+			new = try_malloc(sizeof(t_prog));
 			new->op = line;
 			ft_add_node_end_np((t_pnp **)&all->prog, (t_pnp *)new);
 			all->proglen++;
@@ -96,10 +96,10 @@ int		main(int ac, char **av)
 	error(all.bin, COUNT, NULL, NULL);
 	if (error(all.bin, CHECK, NULL, NULL) == FAILURE)
 	{
-		free_all_malloc();
+		// // free_all_malloc();
 		return (-1);
 	}
 	checker(&all);
-	free_all_malloc();
+	// // free_all_malloc();
 	return (0);
 }

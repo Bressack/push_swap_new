@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/09 16:25:24 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/09 22:02:52 by tharchen         ###   ########.fr       */
+/*   Created: 2021/06/09 18:12:46 by tharchen          #+#    #+#             */
+/*   Updated: 2021/06/09 23:36:44 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <utils.h>
 
-char	*ft_strdup(char *src)
+void	ft_strdel(char **as)
 {
-	char	*dest;
-	size_t	len;
-
-	if (!src)
-		return (NULL);
-	len = ft_strlen(src) + 1;
-	dest = try_malloc(sizeof(char) * len);
-	ft_strcpy(dest, src);
-	return (dest);
+	if (*as)
+	{
+		free(*as);
+		*as = NULL;
+	}
 }

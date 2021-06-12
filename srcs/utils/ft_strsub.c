@@ -23,7 +23,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	out = NULL;
 	if ((start + len) <= length)
 	{
-		if (!(out = try_malloc(sizeof(char) * (len + 1), _FL_)))
+		if (!(out = try_malloc(sizeof(char) * (len + 1))))
 			return (NULL);
 		if (out)
 		{
