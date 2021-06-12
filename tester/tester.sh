@@ -24,7 +24,11 @@ LIGHTPURPLE='\033[1;35m'
 LIGHTCYAN='\033[1;36m'
 WHITE='\033[1;37m'
 
-_CHECKER_STAFF=checker_mac
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	_CHECKER_STAFF=checker_linux
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	_CHECKER_STAFF=checker_mac
+fi
 
 tester_dir=`pwd`/`dirname $0`
 
