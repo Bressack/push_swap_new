@@ -6,7 +6,7 @@
 #    By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/15 23:43:12 by tharchen          #+#    #+#              #
-#    Updated: 2021/06/12 18:06:26 by tharchen         ###   ########.fr        #
+#    Updated: 2021/06/12 18:12:03 by tharchen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,6 +92,7 @@ SRCS_UTILS				=	\
 							utils/isnumber.c \
 							utils/try_malloc.c \
 							utils/ft_strjoin.c \
+							utils/ft_strcmp.c \
 							utils/ft_strdel.c \
 							utils/ft_strdup.c \
 							utils/ft_memcpy.c \
