@@ -6,7 +6,7 @@
 #    By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 15:46:40 by tharchen          #+#    #+#              #
-#    Updated: 2021/06/12 18:18:52 by tharchen         ###   ########.fr        #
+#    Updated: 2021/06/12 18:19:23 by tharchen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	_CHECKER_STAFF=checker_linux
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	_CHECKER_STAFF=checker_mac
+fi
 
 tester_dir=`pwd`/`dirname $0`
 
