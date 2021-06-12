@@ -6,7 +6,7 @@
 #    By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/15 23:43:12 by tharchen          #+#    #+#              #
-#    Updated: 2021/06/12 18:12:03 by tharchen         ###   ########.fr        #
+#    Updated: 2021/06/12 18:12:59 by tharchen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -167,24 +167,10 @@ all:
 	@ make $(NAME_PUSH_SWAP) -j
 
 $(NAME_CHECKER): $(SRCS_CHECKER)
-	@ # mkdir -p $(OBJS_DIR)
-	@ # mkdir -p $(OBJS_DIR_CHECKER)
-	@ # for src in $(SRCS_LIST_CHECKER) ; do \
-		mkdir -p `echo "$(addprefix $(OBJS_DIR), $$src)" | sed -e 's/[a-zA-Z0-9\_\-]*\.c//'`; \
-		$(CC) $(FLAGS) $(HDIR) -D BONUS=$(BONUS_FLAG) -c -o `echo $(addprefix $(OBJS_DIR), $$src) | sed -e 's/\.c/\.o/'` $(addprefix $(SRCS_DIR), $$src); \
-		printf "\033[31m Program \033[32m$(NAME_CHECKER) : \033[34mCompilation of \033[36m%-40s\033[0m\r" $(notdir $$src); \
-	done
 	@ $(CC) $(FLAGS) $(HDIR) $(SRCS_CHECKER) -o $@
 	@ printf "\033[31m Program \033[32m$(NAME_CHECKER) : \033[34mCompilation succeed\033[0m                           \n"; \
 
 $(NAME_PUSH_SWAP): $(SRCS_PUSH_SWAP)
-	@ # mkdir -p $(OBJS_DIR)
-	@ # mkdir -p $(OBJS_DIR_PUSH_SWAP)
-	@ # for src in $(SRCS_LIST_PUSH_SWAP) ; do \
-		mkdir -p `echo "$(addprefix $(OBJS_DIR), $$src)" | sed -e 's/[a-zA-Z0-9\_\-]*\.c//'`; \
-		$(CC) $(FLAGS) $(HDIR) -D BONUS=$(BONUS_FLAG) -c -o `echo $(addprefix $(OBJS_DIR), $$src) | sed -e 's/\.c/\.o/'` $(addprefix $(SRCS_DIR), $$src); \
-		printf "\033[31m Program \033[32m$(NAME_PUSH_SWAP) : \033[34mCompilation of \033[36m%-40s\033[0m\r" $(notdir $$src); \
-	done
 	@ $(CC) $(FLAGS) $(HDIR) $(SRCS_PUSH_SWAP) -o $@
 	@ printf "\033[31m Program \033[32m$(NAME_PUSH_SWAP) : \033[34mCompilation succeed\033[0m                           \n"; \
 

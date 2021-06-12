@@ -6,7 +6,7 @@
 #    By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 15:46:40 by tharchen          #+#    #+#              #
-#    Updated: 2021/06/12 17:53:33 by tharchen         ###   ########.fr        #
+#    Updated: 2021/06/12 18:15:40 by tharchen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,10 @@ C_G_WHITE="\033[37;01m"
 C_G_GREY="\033[90;01m"
 C_RES='\033[0m'
 
-_CHECKER_STAFF=checker_mac
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	_CHECKER_STAFF=checker_linux
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	_CHECKER_STAFF=checker_mac
 
 tester_dir=`pwd`/`dirname $0`
 
