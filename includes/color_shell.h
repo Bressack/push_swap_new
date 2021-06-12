@@ -57,6 +57,6 @@
 ** DEBUG printf(TEST);
 */
 # define MINUS_STR	"----------------------------------------------------------------------------------------------------"
-# define TEST "\033[36;01m(%s) \033[31;01m%s\033[0m %.*s>\033[35;01m %d\033[0m\n", __FILE__, __FUNCTION__, (int)(70 - (strlen(__FUNCTION__) + strlen(__FILE__) + 3)), MINUS_STR, __LINE__
+# define TEST "\033[36;01m(%s) \033[31;01m%s\033[0m %.*s>\033[35;01m %d\033[0m\n", __FILE__, __FUNCTION__, (int)(70 - (ft_strlen(__FUNCTION__) + ft_strlen(__FILE__) + 3)), MINUS_STR, __LINE__
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 18:16:58 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/12 17:34:35 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/12 18:07:23 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int		handle_one_str(t_all *all, char *s)
 	long	n;
 	t_stack	*new;
 
-	if (!strlen(s) || strlen(s) > 11 || isnumber(s) == FAILURE)
+	if (!ft_strlen(s) || ft_strlen(s) > 11 || isnumber(s) == FAILURE)
 		return (error(all->bin, ERR, INVALID_NUMBER, s));
 	n = ft_atol(s);
 	if (n > INT_MAX || n < INT_MIN)

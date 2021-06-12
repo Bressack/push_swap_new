@@ -21,16 +21,16 @@ void	get_prog(t_all *all)
 	line = NULL;
 	while (get_next_line(0, &line) > 0)
 	{
-		if (!line || !strlen(line))
+		if (!line || !ft_strlen(line))
 		{
 			if (line)
 				try_free((void **)&line);
 			continue ;
 		}
-		if (strcmp("pa", line) && strcmp("pb", line) && strcmp("sa", line) &&
-		strcmp("sb", line) && strcmp("ss", line) && strcmp("ra", line) &&
-		strcmp("rb", line) && strcmp("rr", line) && strcmp("rra", line) &&
-		strcmp("rrb", line) && strcmp("rrr", line))
+		if (ft_strcmp("pa", line) && ft_strcmp("pb", line) && ft_strcmp("sa", line) &&
+		ft_strcmp("sb", line) && ft_strcmp("ss", line) && ft_strcmp("ra", line) &&
+		ft_strcmp("rb", line) && ft_strcmp("rr", line) && ft_strcmp("rra", line) &&
+		ft_strcmp("rrb", line) && ft_strcmp("rrr", line))
 		{
 			error(all->bin, ERR, INVALID_OP, line);
 			try_free((void **)&line);
@@ -53,17 +53,17 @@ void	checker(t_all *all)
 	tmp = all->prog;
 	while (tmp)
 	{
-		if (!strcmp("pa", tmp->op)) pa(all, 1);
-		else if (!strcmp("pb", tmp->op)) pb(all, 1);
-		else if (!strcmp("sa", tmp->op)) sa(all, 1);
-		else if (!strcmp("sb", tmp->op)) sb(all, 1);
-		else if (!strcmp("ss", tmp->op)) ss(all, 1);
-		else if (!strcmp("ra", tmp->op)) ra(all, 1);
-		else if (!strcmp("rb", tmp->op)) rb(all, 1);
-		else if (!strcmp("rr", tmp->op)) rr(all, 1);
-		else if (!strcmp("rra", tmp->op)) rra(all, 1);
-		else if (!strcmp("rrb", tmp->op)) rrb(all, 1);
-		else if (!strcmp("rrr", tmp->op)) rrr(all, 1);
+		if (!ft_strcmp("pa", tmp->op)) pa(all, 1);
+		else if (!ft_strcmp("pb", tmp->op)) pb(all, 1);
+		else if (!ft_strcmp("sa", tmp->op)) sa(all, 1);
+		else if (!ft_strcmp("sb", tmp->op)) sb(all, 1);
+		else if (!ft_strcmp("ss", tmp->op)) ss(all, 1);
+		else if (!ft_strcmp("ra", tmp->op)) ra(all, 1);
+		else if (!ft_strcmp("rb", tmp->op)) rb(all, 1);
+		else if (!ft_strcmp("rr", tmp->op)) rr(all, 1);
+		else if (!ft_strcmp("rra", tmp->op)) rra(all, 1);
+		else if (!ft_strcmp("rrb", tmp->op)) rrb(all, 1);
+		else if (!ft_strcmp("rrr", tmp->op)) rrr(all, 1);
 		tmp = tmp->next;
 	}
 	if (all->b)
