@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 15:25:05 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/12 17:25:39 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/12 18:09:56 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,5 @@ char	*ft_strjoin(int nb_str, ...);
 void	ft_strdel(char **as);
 void	*ft_memcpy(void *s1, const void *s2, size_t n);
 char	*ft_strdup(char *src);
+int		ft_strcmp(char *s1, char *s2);
 #endif

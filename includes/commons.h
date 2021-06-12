@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:55:39 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/12 17:23:38 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/12 18:08:52 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ typedef struct		s_stat_prog
 	int				rrr;
 	int				total;
 }					t_stat_prog;
+void	*ft_memset(void *b, int c, size_t len);
 void	try_free(void **mem);
 void	*try_malloc(size_t size);
 int		get_size_stack(t_stack *s);
