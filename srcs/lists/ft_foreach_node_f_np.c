@@ -6,13 +6,13 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 12:57:26 by tharchen          #+#    #+#             */
-/*   Updated: 2020/01/23 16:36:34 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 15:03:42 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <double_linked.h>
 
-void		ft_foreach_node_f_np(t_pnp **begin_list, int (*f)(t_pnp *curr))
+void	ft_foreach_node_f_np(t_pnp **begin_list, int (*f)(t_pnp *curr))
 {
 	t_pnp	*tmp;
 	t_pnp	*tmp2;

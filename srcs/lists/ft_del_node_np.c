@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/29 14:33:35 by tharchen          #+#    #+#             */
-/*   Updated: 2021/03/17 11:22:36 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 15:00:56 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <commons.h>
 
-void		ft_del_node_np(t_pnp **begin_list, t_pnp *del,
+void	ft_del_node_np(t_pnp **begin_list, t_pnp *del,
 	void (*f)(t_pnp *curr))
 {
 	t_pnp	*tmp;

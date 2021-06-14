@@ -6,13 +6,13 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 15:06:37 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/14 14:52:06 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 15:04:10 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <double_linked.h>
 
-void		ft_transfere_node_prev_np(t_pnp **list_src, t_pnp **list_dest,
+void	ft_transfere_node_prev_np(t_pnp **list_src, t_pnp **list_dest,
 	t_pnp *target, t_pnp *neighbour)
 {
 	target = ft_grab_node_np(list_src, target);
@@ -22,7 +22,7 @@ void		ft_transfere_node_prev_np(t_pnp **list_src, t_pnp **list_dest,
 		ft_add_node_prevto_np(list_dest, neighbour, target);
 }
 
-void		ft_transfere_node_next_np(t_pnp **list_src, t_pnp **list_dest,
+void	ft_transfere_node_next_np(t_pnp **list_src, t_pnp **list_dest,
 	t_pnp *target, t_pnp *neighbour)
 {
 	target = ft_grab_node_np(list_src, target);

@@ -6,13 +6,13 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/28 13:06:52 by tharchen          #+#    #+#             */
-/*   Updated: 2021/04/28 11:36:45 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 15:01:21 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <double_linked.h>
 
-void		*ft_new_node(
+void	*ft_new_node(
 	size_t size, void (*f)(void *, int, va_list), int nb_arg, ...)
 {
 	va_list	ap;

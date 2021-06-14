@@ -6,14 +6,14 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 15:25:05 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/12 18:09:56 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 15:36:07 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
-#include <commons.h>
-typedef enum				e_rettype
+# include <commons.h>
+typedef enum e_rettype
 {
 	SUCCESS,
 	FAILURE
@@ -37,4 +37,5 @@ void	ft_strdel(char **as);
 void	*ft_memcpy(void *s1, const void *s2, size_t n);
 char	*ft_strdup(char *src);
 int		ft_strcmp(char *s1, char *s2);
+void	ft_putnbr(int n);
 #endif

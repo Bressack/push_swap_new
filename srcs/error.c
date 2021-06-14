@@ -6,13 +6,40 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:30:39 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/12 17:22:00 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 15:53:00 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <commons.h>
 
-int		error(char *bin, enum e_errortype type, char *msg, char *arg) // TOOLONG
+//			'd' -> int
+//			's' -> string
+void		print_things(int fd, int nb_things, ...)
+{
+	va_list	ap;
+	char	opt;
+	int		val_d;
+	char	*val_s;
+
+	va_start(ap, nb_things);
+	while (nb_things)
+	{
+		opt = va_arg(ap, int);
+		if (opt == 'd')
+		{
+			val_d = va_arg(ap, int);
+			ft_putnbr(val_d);
+		}
+		else if (opt == 's')
+		{
+			val_s = va_arg(ap, char *);
+			write(fd, val_s, ft_strlen(val_s));
+		}
+		nb_things--;
+	}
+}
+
+int	error(char *bin, enum e_errortype type, char *msg, char *arg) // TOOLONG
 {
 	static int nb_error = 0;
 	static int nb_warn = 0;
@@ -32,33 +59,33 @@ int		error(char *bin, enum e_errortype type, char *msg, char *arg) // TOOLONG
 	else if (type == COUNT)
 	{
 		if (nb_error)
-			dprintf(2, "%d error(s) generated.\n", nb_error); // TOFT
+			print_things(2, 2, 'd', nb_error, 's', "error(s) generated.\n");
 		if (nb_warn)
-			dprintf(2, "%d warning(s) generated.\n", nb_warn); // TOFT
+			print_things(2, 2, 'd', nb_warn, 's', "warning(s) generated.\n");
 		return (SUCCESS);
 	}
-	dprintf(2, ""C_G_GREY"%s: "C_RES, bin);
+	print_things(2, 3, 's', C_G_GREY, 's', bin, 's', ": "C_RES);
 	if (type == ERR)
 	{
-		dprintf(2, ""C_G_RED"error: "C_RES""); // TOFT
+		print_things(2, 1, 's', ""C_G_RED"error: "C_RES);
 		nb_error++;
 	}
 	if (type == FATALERR)
 	{
-		dprintf(2, ""C_G_RED"fatal error: "C_RES""); // TOFT
+		print_things(2, 1, 's', ""C_G_RED"fatal error: "C_RES);
 		nb_error++;
 	}
 	if (type == WARN)
 	{
-		dprintf(2, ""C_G_MAGENTA"warning: "C_RES""); // TOFT
+		print_things(2, 1, 's', ""C_G_MAGENTA"warning: "C_RES);
 		nb_warn++;
 	}
 	if (type == INFO)
-		dprintf(2, ""C_G_GREY"info:"C_RES""); // TOFT
-	dprintf(2, ""C_G_WHITE"%s"C_RES" ", msg); // TOFT
+		print_things(2, 1, 's', ""C_G_GREY"info: "C_RES);
+	print_things(2, 3, 's', C_G_WHITE, 's', msg, 's', C_RES);
 	if (arg)
-		dprintf(2, ""C_G_WHITE"\'"C_G_GREY"%s"C_G_WHITE"\'"C_RES, arg);
-	dprintf(2, "\n");
+		print_things(2, 3, 's', ""C_G_WHITE" \'"C_G_GREY, 's', arg, 's', C_G_WHITE"\'"C_RES);
+	print_things(2, 1, 's', "\n");
 	if (type == ERR)
 		return (1);
 	if (type == FATALERR)

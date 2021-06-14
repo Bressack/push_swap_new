@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/28 16:29:21 by tharchen          #+#    #+#             */
-/*   Updated: 2021/03/09 17:14:43 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 15:03:20 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static inline void	swap_all(t_pnp *node_a, t_pnp *node_b)
 		next_b->prev = node_a;
 }
 
-void				ft_swap_node_np(t_pnp **begin_list, t_pnp *node_a,
+void	ft_swap_node_np(t_pnp **begin_list, t_pnp *node_a,
 	t_pnp *node_b)
 {
 	if (!(begin_list) || !(*begin_list) || !node_a || !node_b)
@@ -73,8 +73,8 @@ void				ft_swap_node_np(t_pnp **begin_list, t_pnp *node_a,
 		*begin_list = node_b;
 	else if (*begin_list == node_b)
 		*begin_list = node_a;
-	if (node_a->prev == node_b || node_b->prev == node_a ||
-		node_a->prev == node_b || node_b->prev == node_a)
+	if (node_a->prev == node_b || node_b->prev == node_a
+		|| node_a->prev == node_b || node_b->prev == node_a)
 		swap_near(node_a, node_b);
 	else
 		swap_all(node_a, node_b);

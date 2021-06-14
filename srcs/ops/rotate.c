@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:03:17 by tharchen          #+#    #+#             */
-/*   Updated: 2021/05/05 02:53:06 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 14:59:51 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	rotate(struct s_stack **stack)
 	(*stack) = tmp;
 }
 
-int		ra(t_all *all, int count)
+int	ra(t_all *all, int count)
 {
 	while (count)
 	{
@@ -41,7 +41,7 @@ int		ra(t_all *all, int count)
 	return (0);
 }
 
-int		rb(t_all *all, int count)
+int	rb(t_all *all, int count)
 {
 	while (count)
 	{
@@ -55,7 +55,7 @@ int		rb(t_all *all, int count)
 	return (0);
 }
 
-int		rr(t_all *all, int count)
+int	rr(t_all *all, int count)
 {
 	while (count)
 	{

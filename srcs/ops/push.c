@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:03:17 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/14 14:51:58 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 14:59:35 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	push(struct s_stack **stack_src, struct s_stack **stack_dest)
 		(t_pnp *)*stack_src, (t_pnp *)*stack_dest);
 }
 
-int		pa(t_all *all, int count)
+int	pa(t_all *all, int count)
 {
 	while (count)
 	{
@@ -32,7 +32,7 @@ int		pa(t_all *all, int count)
 	return (0);
 }
 
-int		pb(t_all *all, int count)
+int	pb(t_all *all, int count)
 {
 	while (count)
 	{

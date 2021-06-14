@@ -6,7 +6,7 @@
 #    By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/15 23:43:12 by tharchen          #+#    #+#              #
-#    Updated: 2021/06/14 14:54:30 by tharchen         ###   ########.fr        #
+#    Updated: 2021/06/14 15:36:15 by tharchen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,6 +107,7 @@ SRCS_UTILS				=	\
 							utils/quicksort.c \
 							utils/get_min_max.c \
 							utils/ft_putstr_fd.c \
+							utils/ft_putnbr.c \
 
 SRCS_OPS				=	\
 							ops/rotate.c \
@@ -184,37 +185,12 @@ $(NAME_PUSH_SWAP): $(SRCS_PUSH_SWAP)
 	@ $(CC) $(FLAGS) $(HDIR) $(SRCS_PUSH_SWAP) -o $@
 	@ printf "\033[31m Program \033[32m$(NAME_PUSH_SWAP) : \033[34mCompilation succeed\033[0m                           \n"; \
 
-# $(NAME_CHECKER): $(SRCS_CHECKER)
-# 	@ mkdir -p $(OBJS_DIR)
-# 	@ mkdir -p $(OBJS_DIR_CHECKER)
-# 	@ for src in $(SRCS_LIST_CHECKER) ; do \
-# 		mkdir -p `echo "$(addprefix $(OBJS_DIR), $$src)" | sed -e 's/[a-zA-Z0-9\_\-]*\.c//'`; \
-# 		$(CC) $(FLAGS) $(HDIR) -D BONUS=$(BONUS_FLAG) -c -o `echo $(addprefix $(OBJS_DIR), $$src) | sed -e 's/\.c/\.o/'` $(addprefix $(SRCS_DIR), $$src); \
-# 		printf "\033[31m Program \033[32m$(NAME_CHECKER) : \033[34mCompilation of \033[36m%-40s\033[0m\r" $(notdir $$src); \
-# 	done
-# 	@ $(CC) $(FLAGS) $(HDIR) $(OBJS_CHECKER) -o $@
-# 	@ printf "\033[31m Program \033[32m$(NAME_CHECKER) : \033[34mCompilation succeed\033[0m                           \n"; \
-#
-# $(NAME_PUSH_SWAP): $(SRCS_PUSH_SWAP)
-# 	@ mkdir -p $(OBJS_DIR)
-# 	@ mkdir -p $(OBJS_DIR_PUSH_SWAP)
-# 	@ for src in $(SRCS_LIST_PUSH_SWAP) ; do \
-# 		mkdir -p `echo "$(addprefix $(OBJS_DIR), $$src)" | sed -e 's/[a-zA-Z0-9\_\-]*\.c//'`; \
-# 		$(CC) $(FLAGS) $(HDIR) -D BONUS=$(BONUS_FLAG) -c -o `echo $(addprefix $(OBJS_DIR), $$src) | sed -e 's/\.c/\.o/'` $(addprefix $(SRCS_DIR), $$src); \
-# 		printf "\033[31m Program \033[32m$(NAME_PUSH_SWAP) : \033[34mCompilation of \033[36m%-40s\033[0m\r" $(notdir $$src); \
-# 	done
-# 	@ $(CC) $(FLAGS) $(HDIR) $(OBJS_PUSH_SWAP) -o $@
-# 	@ printf "\033[31m Program \033[32m$(NAME_PUSH_SWAP) : \033[34mCompilation succeed\033[0m                           \n"; \
-
 bonus:
 	@make fclean
 	@make -j BONUS_FLAG=1
 
 norm:
-	@ norminette $(HEADER_DIR)
-
-
-
+	@ norminette $(HEADER_DIR) $(SRCS_LIST_COMMONS) $(SRCS_CHECKER) $(SRCS_PUSH_SWAP)
 clean:
 	@ rm -rf $(OBJS_DIR)
 

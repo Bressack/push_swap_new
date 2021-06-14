@@ -6,13 +6,13 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:59:56 by tharchen          #+#    #+#             */
-/*   Updated: 2021/03/25 14:03:54 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 15:01:14 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <double_linked.h>
 
-t_pnp		*ft_grab_node_np(t_pnp **list_src, t_pnp *target)
+t_pnp	*ft_grab_node_np(t_pnp **list_src, t_pnp *target)
 {
 	t_pnp	*tmp;
 

@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 16:19:17 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/14 14:51:09 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 14:57:40 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void	ft_foreach_node_f_np(
 void	ft_swap_node_np(
 			t_pnp **begin_list, t_pnp *node_a, t_pnp *node_b);
 void	ft_transfere_node_prev_np(t_pnp **list_src, t_pnp **list_dest,
-	t_pnp *target, t_pnp *neighbour);
+			t_pnp *target, t_pnp *neighbour);
 void	ft_transfere_node_next_np(t_pnp **list_src, t_pnp **list_dest,
-	t_pnp *target, t_pnp *neighbour);
+			t_pnp *target, t_pnp *neighbour);
 void	ft_quicksort_list_np(
 			t_pnp **list);
 t_pnp	*ft_listjoin_np(

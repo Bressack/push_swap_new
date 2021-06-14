@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/28 14:42:34 by tharchen          #+#    #+#             */
-/*   Updated: 2021/03/18 12:35:55 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 15:00:41 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <color_shell.h>
 #include <commons.h>
 
-void		ft_add_node_prevto_np(t_pnp **start, t_pnp *next, t_pnp *new)
+void	ft_add_node_prevto_np(t_pnp **start, t_pnp *next, t_pnp *new)
 {
 	if (!new && !next && !(*start))
 		return ;
