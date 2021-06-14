@@ -6,7 +6,7 @@
 #    By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/15 23:43:12 by tharchen          #+#    #+#              #
-#    Updated: 2021/06/14 15:36:15 by tharchen         ###   ########.fr        #
+#    Updated: 2021/06/14 15:54:42 by tharchen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -197,14 +197,14 @@ clean:
 fclean: clean
 	@ rm -f $(NAME_CHECKER)
 	@ rm -f $(NAME_PUSH_SWAP)
+	@ rm -rf $(NAME_CHECKER).dSYM
+	@ rm -rf $(NAME_PUSH_SWAP).dSYM
 
 fclean_checker: clean
 	@ rm -f $(NAME_CHECKER)
 
 fclean_push_swap: clean
 	@ rm -f $(NAME_PUSH_SWAP)
-
-
 
 re: fclean
 	@ make -j
