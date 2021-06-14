@@ -6,15 +6,15 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 13:04:18 by tharchen          #+#    #+#             */
-/*   Updated: 2021/03/09 13:07:54 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 13:59:09 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <commons.h>
 
-size_t			ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

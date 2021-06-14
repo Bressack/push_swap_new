@@ -6,18 +6,18 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 14:53:27 by tharchen          #+#    #+#             */
-/*   Updated: 2021/05/03 14:53:56 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 13:59:53 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <utils.h>
 
-void		quicksort(double *tab, size_t size, int rev)
+void	quicksort(double *tab, size_t size, int rev)
 {
-	size_t 	i;
-	size_t 	wall;
-	double 	pivot;
-	double 	tmp;
+	size_t	i;
+	size_t	wall;
+	double	pivot;
+	double	tmp;
 
 	if (size < 2)
 		return ;

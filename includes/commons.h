@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:55:39 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/12 18:08:52 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 14:54:47 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define MALLOC_ALLOCATION "malloc cannot allocate region"
 # define NUMBER_OUT_OF_INTEGER_RANGE "number out of the range of an integer"
 # define NUMBER_ALREADY_IN_STACK "number already in stack"
-typedef enum		e_errortype
+typedef enum e_errortype
 {
 	NONE,
 	ERR,
@@ -42,13 +42,13 @@ typedef enum		e_errortype
 	CHECK,
 	RESET
 }					t_errortype;
-typedef enum		e_lever
+typedef enum e_lever
 {
 	OFF,
 	ON
 }					t_lever;
 
-typedef struct		s_stack
+typedef struct s_stack
 {
 	struct s_stack	*next;
 	struct s_stack	*prev;
@@ -56,13 +56,13 @@ typedef struct		s_stack
 	int				mark;
 	int				index;
 }					t_stack;
-typedef struct		s_prog
+typedef struct s_prog
 {
 	struct s_prog	*next;
 	struct s_prog	*prev;
 	char			*op;
 }					t_prog;
-typedef struct		s_all
+typedef struct s_all
 {
 	char			*bin;
 	int				fd;
@@ -74,7 +74,7 @@ typedef struct		s_all
 	t_stack			*b;
 	t_prog			*prog;
 }					t_all;
-typedef struct		s_stat_prog
+typedef struct s_stat_prog
 {
 	int				pa;
 	int				pb;
@@ -96,7 +96,7 @@ int		get_size_stack(t_stack *s);
 double	*get_sorted_tab(t_stack *s);
 void	print_stacks(t_all *all);
 void	get_stack(t_all *all, int ac, char **av);
-int		error(char *bin, enum e_errortype type, char *msg, char *arg); // TOOLONG
+int		error(char *bin, enum e_errortype type, char *msg, char *arg);
 void	swap(struct s_stack **stack);
 int		pa(t_all *all, int count);
 int		pb(t_all *all, int count);

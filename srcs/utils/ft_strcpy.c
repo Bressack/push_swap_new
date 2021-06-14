@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 09:43:42 by tharchen          #+#    #+#             */
-/*   Updated: 2021/03/10 15:23:28 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 13:59:45 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strcpy(char *s1, const char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (s2 == NULL)

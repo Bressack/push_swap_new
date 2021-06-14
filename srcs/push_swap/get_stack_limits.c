@@ -1,34 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   get_stack_limits.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/27 12:17:15 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/14 13:56:26 by tharchen         ###   ########.fr       */
+/*   Created: 2021/06/14 14:24:39 by tharchen          #+#    #+#             */
+/*   Updated: 2021/06/14 14:24:50 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <commons.h>
+#include <push_swap.h>
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+t_stack	*get_stack_min(t_stack *s)
 {
-	size_t		length;
-	char		*out;
+	t_stack		*ret;
+	int			min;
 
-	if (s == NULL)
-		return (NULL);
-	length = ft_strlen(s);
-	out = NULL;
-	if ((start + len) <= length)
+	ret = s;
+	if (s)
+		min = s->value;
+	while (s)
 	{
-		out = try_malloc(sizeof(char) * (len + 1));
-		if (out)
+		if (s->value < min)
 		{
-			out = ft_strncpy(out, s + start, len);
-			out[len] = '\0';
+			ret = s;
+			min = s->value;
 		}
+		s = s->next;
 	}
-	return (out);
+	return (ret);
+}
+
+t_stack	*get_stack_max(t_stack *s)
+{
+	t_stack		*ret;
+	int			max;
+
+	ret = s;
+	if (s)
+		max = s->value;
+	while (s)
+	{
+		if (s->value > max)
+		{
+			ret = s;
+			max = s->value;
+		}
+		s = s->next;
+	}
+	return (ret);
 }

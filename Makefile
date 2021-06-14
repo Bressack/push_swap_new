@@ -6,7 +6,7 @@
 #    By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/15 23:43:12 by tharchen          #+#    #+#              #
-#    Updated: 2021/06/12 18:12:59 by tharchen         ###   ########.fr        #
+#    Updated: 2021/06/14 14:54:30 by tharchen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,17 @@
 #                                                                              #
 # *** NAME - CC - FLAGS ****************************************************** #
 
+UNAME_S					=	$(shell uname -s)
+
 NAME_CHECKER			=	checker
 
 NAME_PUSH_SWAP			=	push_swap
 
-CC						=	clang-9
+ifeq ($(UNAME_S),Linux)
+	CC					=	clang-9
+else
+	CC					=	clang
+endif
 
 FLAGS					=	-Wall -Wextra -Werror -O3
 # FLAGS					=	-Wall -Wextra -Werror -g3 -fsanitize=address
@@ -124,7 +130,11 @@ SRCS_LIST_CHECKER_BRUT	=	\
 							main.c \
 
 SRCS_LIST_PUSH_SWAP_BRUT	=	\
-							main.c \
+								get_stack_limits.c \
+								main.c \
+								marks_handle.c \
+								process_alpha.c \
+								process_beta.c \
 
 SRCS_LIST_CHECKER_P		=	$(addprefix $(SRCS_DIR_CHECKER), $(SRCS_LIST_CHECKER_BRUT))
 

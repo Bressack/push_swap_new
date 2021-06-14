@@ -6,13 +6,13 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 15:24:34 by tharchen          #+#    #+#             */
-/*   Updated: 2021/03/09 15:31:05 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 13:57:28 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <utils.h>
+#include <utils.h>
 
-int		isnumber(char *str)
+int	isnumber(char *str)
 {
 	int	i;
 

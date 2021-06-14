@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:03:17 by tharchen          #+#    #+#             */
-/*   Updated: 2021/05/05 02:53:16 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 14:51:58 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	push(struct s_stack **stack_src, struct s_stack **stack_dest)
 {
-	ft_transfere_node_np((t_pnp **)stack_src, (t_pnp **)stack_dest,
-		(t_pnp *)*stack_src, (t_pnp *)*stack_dest, PREV);
+	ft_transfere_node_prev_np((t_pnp **)stack_src, (t_pnp **)stack_dest,
+		(t_pnp *)*stack_src, (t_pnp *)*stack_dest);
 }
 
 int		pa(t_all *all, int count)

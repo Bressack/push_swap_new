@@ -6,7 +6,7 @@
 /*   By: tarchen <tarchen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 17:06:36 by tarchen           #+#    #+#             */
-/*   Updated: 2021/05/05 13:15:16 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 13:54:54 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	intlen(int value)
 	return (len);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*buf;
 	int		j;

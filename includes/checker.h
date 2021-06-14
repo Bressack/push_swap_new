@@ -6,11 +6,11 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:55:39 by tharchen          #+#    #+#             */
-/*   Updated: 2021/05/10 14:44:01 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 14:38:47 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
-#include <commons.h>
+# include <commons.h>
 #endif

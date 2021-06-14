@@ -6,11 +6,11 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 15:24:23 by tharchen          #+#    #+#             */
-/*   Updated: 2021/03/24 18:55:21 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 13:56:56 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		nbrlen(long nbr)
+int	nbrlen(long nbr)
 {
 	int	res;
 

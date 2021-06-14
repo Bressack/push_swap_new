@@ -6,11 +6,11 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/21 16:40:54 by tharchen          #+#    #+#             */
-/*   Updated: 2021/03/09 13:10:39 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 13:55:23 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_strfind(char *s, int c)
+int	ft_strfind(char *s, int c)
 {
 	int		i;
 
