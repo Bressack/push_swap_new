@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:55:15 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/14 14:35:02 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 16:13:24 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,7 @@ int	main(int ac, char **av)
 			process_alpha(&all);
 		process_beta(&all);
 	}
+	ft_del_list_np((t_pnp **)&all.a);
+	ft_del_list_np((t_pnp **)&all.b);
 	return (0);
 }
