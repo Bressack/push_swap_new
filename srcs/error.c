@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:30:39 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/14 18:04:40 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:04:10 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ int	error(char *bin, enum e_errortype type, char *msg, char *arg)
 
 	if (error_rcc(type, &nb_error, &nb_warn) == SUCCESS)
 		return (SUCCESS);
-	print_things(2, 3, 's', C_G_GREY, 's', bin, 's', ": "C_RES);
+	if (type == ERR || type == FATALERR || type == WARN)
+		print_things(2, 3, 's', C_G_GREY, 's', bin, 's', ": "C_RES);
 	if (type == ERR)
 	{
 		print_things(2, 1, 's', ""C_G_RED"error: "C_RES);
