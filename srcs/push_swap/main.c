@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:55:15 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/14 16:13:24 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/15 12:55:56 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,11 @@ int	main(int ac, char **av)
 		get_stack(&all, ac, av);
 	error(all.bin, COUNT, NULL, NULL);
 	if (error(all.bin, CHECK, NULL, NULL) == FAILURE)
+	{
+		ft_del_list_np((t_pnp **)&all.a);
+		ft_del_list_np((t_pnp **)&all.b);
 		return (-1);
+	}
 	if (all.a && all.a->next)
 	{
 		if (all.stacklen <= 5 && all.stacklen >= 3)
