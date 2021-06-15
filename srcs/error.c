@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:30:39 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/15 13:04:10 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:04:40 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ int	error_(enum e_errortype type, char *msg, char *arg)
 	if (arg)
 		print_things(2, 3, 's', ""C_G_WHITE" \'"C_G_GREY, 's', arg, 's',
 			C_G_WHITE"\'"C_RES);
-	print_things(2, 1, 's', "\n");
+	if (type == ERR || type == FATALERR || type == WARN)
+		print_things(2, 1, 's', "\n");
 	if (type == ERR)
 		return (FAILURE);
 	if (type == FATALERR)
