@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:30:39 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/15 13:04:40 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:05:01 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	error_(enum e_errortype type, char *msg, char *arg)
 	if (arg)
 		print_things(2, 3, 's', ""C_G_WHITE" \'"C_G_GREY, 's', arg, 's',
 			C_G_WHITE"\'"C_RES);
-	if (type == ERR || type == FATALERR || type == WARN)
+	if (type == ERR || type == FATALERR || type == WARN || type == INFO)
 		print_things(2, 1, 's', "\n");
 	if (type == ERR)
 		return (FAILURE);
@@ -89,7 +89,7 @@ int	error(char *bin, enum e_errortype type, char *msg, char *arg)
 
 	if (error_rcc(type, &nb_error, &nb_warn) == SUCCESS)
 		return (SUCCESS);
-	if (type == ERR || type == FATALERR || type == WARN)
+	if (type == ERR || type == FATALERR || type == WARN || type == INFO)
 		print_things(2, 3, 's', C_G_GREY, 's', bin, 's', ": "C_RES);
 	if (type == ERR)
 	{
