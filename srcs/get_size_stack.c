@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   get_size_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/09 13:04:18 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/14 17:58:47 by tharchen         ###   ########.fr       */
+/*   Created: 2021/06/14 16:34:44 by tharchen          #+#    #+#             */
+/*   Updated: 2021/06/14 16:36:25 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <commons.h>
+#include <push_swap.h>
 
-size_t	ft_strlen(const char *s)
+int	get_size_stack(t_stack *s)
 {
-	size_t	i;
+	int			i;
 
 	i = 0;
-	while (s && s[i])
+	while (s)
+	{
 		i++;
+		s = s->next;
+	}
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: tarchen <tarchen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 17:06:36 by tarchen           #+#    #+#             */
-/*   Updated: 2021/06/14 13:54:54 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 18:03:51 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static int	intlen(int value)
 	len = 0;
 	if (value < 0)
 		len++;
+	if (!value)
+		return (1);
 	while (value)
 	{
 		len++;

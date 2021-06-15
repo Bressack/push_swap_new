@@ -6,7 +6,7 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:55:39 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/14 14:54:47 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 16:35:55 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,10 @@ void	try_free(void **mem);
 void	*try_malloc(size_t size);
 int		get_size_stack(t_stack *s);
 double	*get_sorted_tab(t_stack *s);
-void	print_stacks(t_all *all);
 void	get_stack(t_all *all, int ac, char **av);
 int		error(char *bin, enum e_errortype type, char *msg, char *arg);
 void	swap(struct s_stack **stack);
+int	get_size_stack(t_stack *s);
 int		pa(t_all *all, int count);
 int		pb(t_all *all, int count);
 int		ra(t_all *all, int count);

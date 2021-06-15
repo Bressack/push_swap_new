@@ -6,7 +6,7 @@
 #    By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/15 23:43:12 by tharchen          #+#    #+#              #
-#    Updated: 2021/06/14 15:59:57 by tharchen         ###   ########.fr        #
+#    Updated: 2021/06/15 12:50:02 by tharchen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,6 @@
 
 UNAME_S					=	$(shell uname -s)
 
-NAME_CHECKER			=	checker
-
 NAME_PUSH_SWAP			=	push_swap
 
 ifeq ($(UNAME_S),Linux)
@@ -38,7 +36,8 @@ else
 endif
 
 # FLAGS					=	-Wall -Wextra -Werror -O3
-FLAGS					=	-Wall -Wextra -Werror -g3 -fsanitize=address
+# FLAGS					=	-Wall -Wextra -Werror -g3 -fsanitize=address
+FLAGS					=	-Wall -Wextra -Werror -O3 -g3 -fsanitize=address
 
 BONUS_FLAG				=	0
 
@@ -52,7 +51,6 @@ HEADER_DIR				=	\
 							./includes/
 
 HEADER					=	\
-							checker.h \
 							commons.h \
 							color_shell.h \
 							mmalloc.h \
@@ -65,7 +63,6 @@ HEADER					=	\
 SRCS_DIR				=	./srcs/
 
 SRCS_DIR_PERF			=	./srcs/
-# SRCS_DIR_PERF			=	./srcs_perfanalyser/
 
 SRCS_LIBLIST			=	\
 							lists/ft_add_node_end_np.c \
@@ -121,14 +118,11 @@ SRCS_LIST_COMMONS		=	\
 							$(SRCS_OPS) \
 							error.c \
 							get_stack.c \
-							print_stacks.c \
+							get_size_stack.c \
 
 SRCS_DIR_CHECKER		=	checker/
 
 SRCS_DIR_PUSH_SWAP		=	push_swap/
-
-SRCS_LIST_CHECKER_BRUT	=	\
-							main.c \
 
 SRCS_LIST_PUSH_SWAP_BRUT	=	\
 								get_stack_limits.c \
@@ -137,19 +131,11 @@ SRCS_LIST_PUSH_SWAP_BRUT	=	\
 								process_alpha.c \
 								process_beta.c \
 
-SRCS_LIST_CHECKER_P		=	$(addprefix $(SRCS_DIR_CHECKER), $(SRCS_LIST_CHECKER_BRUT))
-
 SRCS_LIST_PUSH_SWAP_P	=	$(addprefix $(SRCS_DIR_PUSH_SWAP), $(SRCS_LIST_PUSH_SWAP_BRUT))
-
-SRCS_LIST_CHECKER		=	\
-							$(SRCS_LIST_COMMONS) \
-							$(SRCS_LIST_CHECKER_P) \
 
 SRCS_LIST_PUSH_SWAP		=	\
 							$(SRCS_LIST_COMMONS) \
 							$(SRCS_LIST_PUSH_SWAP_P) \
-
-SRCS_CHECKER			=	$(addprefix $(SRCS_DIR), $(SRCS_LIST_CHECKER))
 
 SRCS_PUSH_SWAP			=	$(addprefix $(SRCS_DIR_PERF), $(SRCS_LIST_PUSH_SWAP))
 
@@ -157,15 +143,9 @@ SRCS_PUSH_SWAP			=	$(addprefix $(SRCS_DIR_PERF), $(SRCS_LIST_PUSH_SWAP))
 
 OBJS_DIR				=	./objs/
 
-OBJS_DIR_CHECKER		=	$(addprefix $(OBJS_DIR), checker/)
-
 OBJS_DIR_PUSH_SWAP		=	$(addprefix $(OBJS_DIR), push_swap/)
 
-OBJS_LIST_CHECKER		=	$(patsubst %.c, %.o, $(SRCS_LIST_CHECKER))
-
 OBJS_LIST_PUSH_SWAP		=	$(patsubst %.c, %.o, $(SRCS_LIST_PUSH_SWAP))
-
-OBJS_CHECKER			=	$(addprefix $(OBJS_DIR), $(OBJS_LIST_CHECKER))
 
 OBJS_PUSH_SWAP			=	$(addprefix $(OBJS_DIR), $(OBJS_LIST_PUSH_SWAP))
 
@@ -174,12 +154,7 @@ OBJS_PUSH_SWAP			=	$(addprefix $(OBJS_DIR), $(OBJS_LIST_PUSH_SWAP))
 .PHONY: clean fclean all re norm fclean_checker fclean_push_swap re_checker re_push_swap
 
 all:
-	@ make $(NAME_CHECKER) -j
 	@ make $(NAME_PUSH_SWAP) -j
-
-$(NAME_CHECKER): $(SRCS_CHECKER)
-	@ $(CC) $(FLAGS) $(HDIR) $(SRCS_CHECKER) -o $@
-	@ printf "\033[31m Program \033[32m$(NAME_CHECKER) : \033[34mCompilation succeed\033[0m                           \n"; \
 
 $(NAME_PUSH_SWAP): $(SRCS_PUSH_SWAP)
 	@ $(CC) $(FLAGS) $(HDIR) $(SRCS_PUSH_SWAP) -o $@
@@ -195,22 +170,14 @@ clean:
 	@ rm -rf $(OBJS_DIR)
 
 fclean: clean
-	@ rm -f $(NAME_CHECKER)
 	@ rm -f $(NAME_PUSH_SWAP)
-	@ rm -rf $(NAME_CHECKER).dSYM
 	@ rm -rf $(NAME_PUSH_SWAP).dSYM
-
-fclean_checker: clean
-	@ rm -f $(NAME_CHECKER)
 
 fclean_push_swap: clean
 	@ rm -f $(NAME_PUSH_SWAP)
 
 re: fclean
 	@ make -j
-
-re_checker: fclean_checker
-	@ make $(NAME_CHECKER) -j
 
 re_push_swap: fclean_push_swap
 	@ make $(NAME_PUSH_SWAP) -j

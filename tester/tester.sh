@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    tester.sh                                          :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/06/14 17:10:52 by tharchen          #+#    #+#              #
+#    Updated: 2021/06/15 12:42:22 by tharchen         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 #!/bin/bash
 
 # Created by lmalki-h with <3
@@ -33,6 +45,11 @@ fi
 tester_dir=`pwd`/`dirname $0`
 
 checker_staff=${tester_dir}/$_CHECKER_STAFF
+
+if [[ $2 == "error" ]] ; then
+	error_test
+	exit 0
+fi
 
 if [[ $# -ne 3 && $# -ne 4 && $# -ne 5 ]]; then
     printf "Usage: visualise.sh [directory-to-push_swap] [stacksize 0R range] [nb_of_test]\n" >&2

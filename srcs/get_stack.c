@@ -6,25 +6,12 @@
 /*   By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 18:16:58 by tharchen          #+#    #+#             */
-/*   Updated: 2021/06/12 18:07:23 by tharchen         ###   ########.fr       */
+/*   Updated: 2021/06/14 18:04:31 by tharchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <commons.h>
 #include <push_swap.h>
-
-int				get_size_stack(t_stack *s)
-{
-	int			i;
-
-	i = 0;
-	while (s)
-	{
-		i++;
-		s = s->next;
-	}
-	return (i);
-}
 
 double	*get_sorted_tab(t_stack *s)
 {
@@ -74,7 +61,7 @@ void	apply_index(t_all *all)
 	try_free((void **)&tab);
 }
 
-int		handle_one_str(t_all *all, char *s)
+int	handle_one_str(t_all *all, char *s)
 {
 	long	n;
 	t_stack	*new;
@@ -95,7 +82,7 @@ int		handle_one_str(t_all *all, char *s)
 	return (SUCCESS);
 }
 
-int		search_doublons(t_all *all)
+int	search_doublons(t_all *all)
 {
 	struct s_stack	*tmp;
 	struct s_stack	*tmp2;
