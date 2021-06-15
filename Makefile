@@ -6,7 +6,7 @@
 #    By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/15 23:43:12 by tharchen          #+#    #+#              #
-#    Updated: 2021/06/15 13:13:29 by tharchen         ###   ########.fr        #
+#    Updated: 2021/06/15 13:41:54 by tharchen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,6 @@ endif
 
 FLAGS					=	-Wall -Wextra -Werror -O3
 # FLAGS					=	-Wall -Wextra -Werror -g3 -fsanitize=address
-
-BONUS_FLAG				=	0
 
 # *** PROJECT HEADER ********************************************************* #
 
@@ -154,10 +152,6 @@ all:
 $(NAME_PUSH_SWAP): $(SRCS_PUSH_SWAP)
 	@ $(CC) $(FLAGS) $(HDIR) $(SRCS_PUSH_SWAP) -o $@
 	@ printf "\033[31m Program \033[32m$(NAME_PUSH_SWAP) : \033[34mCompilation succeed\033[0m                           \n"; \
-
-bonus:
-	@make fclean
-	@make -j BONUS_FLAG=1
 
 norm:
 	@ norminette $(HEADER_DIR) $(SRCS_PUSH_SWAP)
