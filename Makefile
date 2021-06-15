@@ -6,7 +6,7 @@
 #    By: tharchen <tharchen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/15 23:43:12 by tharchen          #+#    #+#              #
-#    Updated: 2021/06/15 12:53:30 by tharchen         ###   ########.fr        #
+#    Updated: 2021/06/15 13:13:29 by tharchen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,9 +35,8 @@ else
 	CC					=	clang
 endif
 
-# FLAGS					=	-Wall -Wextra -Werror -O3
-FLAGS					=	-Wall -Wextra -Werror -g3 -fsanitize=address
-# FLAGS					=	-Wall -Wextra -Werror -O3 -g3 -fsanitize=address
+FLAGS					=	-Wall -Wextra -Werror -O3
+# FLAGS					=	-Wall -Wextra -Werror -g3 -fsanitize=address
 
 BONUS_FLAG				=	0
 
@@ -61,8 +60,6 @@ HEADER					=	\
 # *** SRCS ******************************************************************* #
 
 SRCS_DIR				=	./srcs/
-
-SRCS_DIR_PERF			=	./srcs/
 
 SRCS_LIBLIST			=	\
 							lists/ft_add_node_end_np.c \
@@ -120,8 +117,6 @@ SRCS_LIST_COMMONS		=	\
 							get_stack.c \
 							get_size_stack.c \
 
-SRCS_DIR_CHECKER		=	checker/
-
 SRCS_DIR_PUSH_SWAP		=	push_swap/
 
 SRCS_LIST_PUSH_SWAP_BRUT	=	\
@@ -137,7 +132,7 @@ SRCS_LIST_PUSH_SWAP		=	\
 							$(SRCS_LIST_COMMONS) \
 							$(SRCS_LIST_PUSH_SWAP_P) \
 
-SRCS_PUSH_SWAP			=	$(addprefix $(SRCS_DIR_PERF), $(SRCS_LIST_PUSH_SWAP))
+SRCS_PUSH_SWAP			=	$(addprefix $(SRCS_DIR), $(SRCS_LIST_PUSH_SWAP))
 
 # *** OBJS ******************************************************************* #
 
@@ -151,7 +146,7 @@ OBJS_PUSH_SWAP			=	$(addprefix $(OBJS_DIR), $(OBJS_LIST_PUSH_SWAP))
 
 # *** RULES ****************************************************************** #
 
-.PHONY: clean fclean all re norm fclean_checker fclean_push_swap re_checker re_push_swap
+.PHONY: clean fclean all re norm fclean_push_swap re_push_swap
 
 all:
 	@ make $(NAME_PUSH_SWAP) -j
@@ -165,7 +160,8 @@ bonus:
 	@make -j BONUS_FLAG=1
 
 norm:
-	@ norminette $(HEADER_DIR) $(SRCS_LIST_COMMONS) $(SRCS_CHECKER) $(SRCS_PUSH_SWAP)
+	@ norminette $(HEADER_DIR) $(SRCS_PUSH_SWAP)
+
 clean:
 	@ rm -rf $(OBJS_DIR)
 
